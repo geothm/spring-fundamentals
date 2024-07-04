@@ -15,7 +15,7 @@ public class SpringBean9 {
         System.out.println("SpringBean9 constructor");
     }
 
-    @Autowired
+    @Autowired(required = false)
     public void setSpringBean7(SpringBean7 springBean7) {
         this.springBean7 = springBean7;
     }
@@ -28,8 +28,11 @@ public class SpringBean9 {
     @PostConstruct
     void init(){
         System.out.println("SpringBean9 init method");
-        springBean7.doSomething();
-        System.out.println("SpringBean7 index: " + springBean7.getIndex());
         System.out.println("SpringBean10 index: " + springBean10.getIndex());
+
+        if (springBean7 != null) {
+            springBean7.doSomething();
+            System.out.println("SpringBean7 index: " + springBean7.getIndex());
+        }
     }
 }

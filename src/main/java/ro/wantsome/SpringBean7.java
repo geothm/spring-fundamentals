@@ -2,7 +2,9 @@ package ro.wantsome;
 
 import org.springframework.stereotype.Component;
 
+/*
 @Component
+*/
 public class SpringBean7 {
 
     private double index;
