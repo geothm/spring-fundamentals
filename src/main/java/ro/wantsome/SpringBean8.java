@@ -8,9 +8,11 @@ import javax.annotation.PostConstruct;
 public class SpringBean8 {
 
     private final SpringBean7 springBean7;
+    private final SpringBean10 springBean10;
 
-    public SpringBean8(SpringBean7 springBean7) {
+    public SpringBean8(SpringBean7 springBean7, SpringBean10 springBean10) {
         this.springBean7 = springBean7;
+        this.springBean10 = springBean10;
         System.out.println("SpringBean8 constructor");
     }
 

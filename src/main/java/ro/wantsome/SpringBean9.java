@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 public class SpringBean9 {
 
     private SpringBean7 springBean7;
+    private SpringBean10 springBean10;
 
     public SpringBean9() {
         System.out.println("SpringBean9 constructor");
@@ -17,6 +18,11 @@ public class SpringBean9 {
     @Autowired
     public void setSpringBean7(SpringBean7 springBean7) {
         this.springBean7 = springBean7;
+    }
+
+    @Autowired
+    public void setSpringBean10(SpringBean10 springBean10) {
+        this.springBean10 = springBean10;
     }
 
     @PostConstruct
