@@ -10,3 +10,9 @@ Define SpringBean4 with @Service annotation
 Create SpringBean9 where SpringBean7 will be injected via Setter Injection
 
 3. Create SpringBean10 and print a message inside the constructor, with scope prototype and inject into SpringBean8 And SpringBean9
+
+4. Remove annotation from SpringBean7 and inject dependency with required=true
+
+5. Create BeanInterface interface with a method interfaceMethod() which will be implemented 
+by ImplementationBean1, ImplementationBean2, ImplementationBean3. - implement interfaceMethod() to print a different message
+Create DelegatorBean which will inject a List of BeanInterface and call interfaceMethod() on each of them.
