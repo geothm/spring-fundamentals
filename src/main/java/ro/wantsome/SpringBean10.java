@@ -7,7 +7,14 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class SpringBean10 {
 
+    private double index;
+
     public SpringBean10() {
-        System.out.println("SpringBean10 constructor");
+        index = Math.random();
+        System.out.println("SpringBean10 constructor " + index);
+    }
+
+    public double getIndex() {
+        return index;
     }
 }

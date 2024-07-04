@@ -29,5 +29,7 @@ public class SpringBean9 {
     void init(){
         System.out.println("SpringBean9 init method");
         springBean7.doSomething();
+        System.out.println("SpringBean7 index: " + springBean7.getIndex());
+        System.out.println("SpringBean10 index: " + springBean10.getIndex());
     }
 }
