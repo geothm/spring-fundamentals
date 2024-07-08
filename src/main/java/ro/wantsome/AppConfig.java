@@ -1,3 +1,4 @@
+/*
 package ro.wantsome;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -40,3 +41,4 @@ public class AppConfig {
         System.out.println("App config destroy: ");
     }
 }
+*/
