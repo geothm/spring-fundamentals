@@ -9,6 +9,7 @@ public class AopBean1 {
         System.out.println("AopBean1.someMethod()");
     }
 
+    @MyAnnotation
     public void doSomething() {
         System.out.println("AopBean1.doSomething()");
     }

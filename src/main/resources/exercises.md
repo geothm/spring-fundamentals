@@ -26,3 +26,7 @@ Add a client spring bean that uses the interface.
 AOP 2. Create an aspect that logs the method calls of all methods in ro.aop package
 
 AOP 3. Create an aspect that logs the method calls of all methods that end with the word "Method".
+
+AOP 4. Create an aspect that logs the method calls of all methods inside a certain class.
+
+AOP 5. Create an aspect that logs the method calls of all methods that have a custom annotation.
