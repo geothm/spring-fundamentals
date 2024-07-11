@@ -22,3 +22,7 @@ Create DelegatorBean which will inject a List of BeanInterface and call interfac
 AOP 1. Create a java class with a method. Add an interface for that method. Add a spring bean that implements the interface.
 The bean should delegate to the plain java class method.
 Add a client spring bean that uses the interface.
+
+AOP 2. Create an aspect that logs the method calls of all methods in ro.aop package
+
+AOP 3. Create an aspect that logs the method calls of all methods that end with the word "Method".

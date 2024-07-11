@@ -3,6 +3,7 @@ package ro.aop;
 import org.springframework.stereotype.Component;
 
 @Component
+//proxy
 public class BeanBehaviourImpl implements BehaviourInterface {
     private MyBehaviourImpl myBehaviour;
 
