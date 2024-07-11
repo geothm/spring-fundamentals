@@ -16,3 +16,9 @@ Create SpringBean9 where SpringBean7 will be injected via Setter Injection
 5. Create BeanInterface interface with a method interfaceMethod() which will be implemented 
 by ImplementationBean1, ImplementationBean2, ImplementationBean3. - implement interfaceMethod() to print a different message
 Create DelegatorBean which will inject a List of BeanInterface and call interfaceMethod() on each of them.
+
+---
+
+AOP 1. Create a java class with a method. Add an interface for that method. Add a spring bean that implements the interface.
+The bean should delegate to the plain java class method.
+Add a client spring bean that uses the interface.
