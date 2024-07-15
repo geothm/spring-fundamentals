@@ -30,3 +30,24 @@ AOP 3. Create an aspect that logs the method calls of all methods that end with 
 AOP 4. Create an aspect that logs the method calls of all methods inside a certain class.
 
 AOP 5. Create an aspect that logs the method calls of all methods that have a custom annotation.
+
+MVC1. Create a simple HTML document with the following structure:
+
+A title "My First HTML Page"
+A heading (h1) with the text "Welcome to My Page"
+A paragraph with the text "This is my first HTML page. I'm learning how to create web pages using HTML."
+
+MVC2. Create an HTML document that includes:
+
+A heading (h2) with the text "My Favorite Fruits"
+An unordered list of your three favorite fruits
+
+MVC3. A heading (h2) with the text "Useful Links"
+Three hyperlinks to your favorite websites. Use descriptive text for the links.
+
+MVC4. A heading (h2) with the text "My Favorite Animal"
+An image of your favorite animal. Use the alt attribute to provide alternative text for the image.
+
+MVC5. A heading (h2) with the text "My Daily Routine"
+An ordered list with at least three items representing your daily routine.
+Within one of the list items, include a nested unordered list with sub-tasks or activities.
