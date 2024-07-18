@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/myservlet")
+@WebServlet("/customer")
 public class MyServlet extends HttpServlet {
 
     @Override
@@ -17,7 +17,7 @@ public class MyServlet extends HttpServlet {
 // Initialization code, e.g., setting up resources
     }
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
