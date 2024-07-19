@@ -1,4 +1,5 @@
-package ro.servlet;
+package ro.wantsome.servlet;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,10 +11,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/customer")
-public class MyServlet extends HttpServlet {
+public class MyServlet extends HttpServlet
+{
 
     @Override
-    public void init() throws ServletException {
+    public void init() throws ServletException
+    {
 // Initialization code, e.g., setting up resources
     }
     @Override
