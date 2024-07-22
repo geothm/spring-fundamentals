@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MyController {
 
+	//@RequestMapping(value = "/users", method = RequestMethod.GET)
 	@GetMapping("/users")
 	public String getUsers() {
 			System.out.println("Getting users");
@@ -16,8 +17,7 @@ public class MyController {
 		}
 
 	@PostMapping("/submitForm")
-	public String postForm(@RequestParam("name") String name,
-			@RequestParam("email") String email){
+	public String postForm(@RequestParam("name") String name, @RequestParam("email") String email){
 		System.out.println("Name: " + name);
 		System.out.println("Email: " + email);
 
