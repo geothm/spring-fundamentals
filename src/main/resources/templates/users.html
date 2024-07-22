@@ -3,9 +3,12 @@
     <title>Users</title>
 </head>
 <body>
+<div th:insert="~{fragments.html :: nav}"></div>
 <h1>Users list</h1>
 <ul>
     <li th:each="item : ${users}" th:text="${item}">Item</li>
 </ul>
+
+<div th:insert="~{fragments.html :: footer}"></div>
 </body>
 </html>
