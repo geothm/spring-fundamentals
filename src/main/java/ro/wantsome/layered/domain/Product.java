@@ -1,13 +1,22 @@
 package ro.wantsome.layered.domain;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 public class Product {
 
 	private Long id;
+
+	@NotBlank(message = "Name is mandatory")
+	@Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
 	private String name;
-	private double price;
+
+	@NotNull(message = "Price is mandatory")
+	private Double price;
+
 	private boolean available;
 
-	public Product(Long id, String name, double price, boolean available) {
+	public Product(Long id, String name, Double price, boolean available) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -24,7 +33,7 @@ public class Product {
 		this.name = name;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -41,7 +50,7 @@ public class Product {
 	}
 
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
