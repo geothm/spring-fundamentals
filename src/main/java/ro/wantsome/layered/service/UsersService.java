@@ -18,4 +18,8 @@ public class UsersService {
 	public List<User> listUsers() {
 		return usersRepository.findAll();
 	}
+
+	public Long saveUser(User user) {
+		return usersRepository.save(user);
+	}
 }
