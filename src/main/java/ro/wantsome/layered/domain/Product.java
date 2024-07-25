@@ -14,6 +14,24 @@ public class Product {
 		this.available = available;
 	}
 
+	public Product() {
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+
 	public Long getId() {
 		return id;
 	}
