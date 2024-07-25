@@ -61,3 +61,5 @@ MVC2.1 Create a Thymeleaf template that displays a list of Products (id, name an
 MVC2.2 Create two Thymeleaf fragments that are reused across two pages: one for the header and one for the footer. Include these fragments in the two pages. One page should display a list of employees in a table, and the other a list of departments.
 
 MVC2.3 Create a form to save Products, a result page to display the saved products and the corresponding controller methods.
+
+MVC2.4 In the productForm add a button that will redirect to the product list page.

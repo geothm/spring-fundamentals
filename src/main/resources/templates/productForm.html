@@ -2,6 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Product Form</title>
+    <style>
+        .button-link {
+            background-color: #ccc; /* Gray background */
+            border: 1px solid #888; /* Darker gray border */
+            color: black; /* Black text color */
+            padding: 8px 16px; /* Smaller padding */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Smaller font size */
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners */
+        }
+
+        .button-link:hover {
+            background-color: #bbb; /* Darker gray on hover */
+        }
+    </style>
 </head>
 <body>
 <h1>Product Form</h1>
@@ -21,6 +40,9 @@
     </div>
     <div>
         <button type="submit">Save</button>
+    </div>
+    <div>
+        <a th:href="@{/products}" class="button-link">Back</a>
     </div>
 </form>
 </body>
