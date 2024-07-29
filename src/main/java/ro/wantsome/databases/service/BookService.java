@@ -5,6 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.wantsome.databases.domain.Book;
 import ro.wantsome.databases.domain.BookRepository;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -15,11 +17,15 @@ public class BookService {
 	}
 
 	@Transactional
-	public void addBook(Book book) {
+	public void saveBook(Book book) {
 		bookRepository.save(book);
 	}
 
 	public Book findById(Long id) {
 		return bookRepository.findById(id);
+	}
+
+	public List<Book> findAll() {
+		return bookRepository.findAll();
 	}
 }

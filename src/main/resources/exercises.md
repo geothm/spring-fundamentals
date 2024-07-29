@@ -67,3 +67,5 @@ MVC2.4 In the productForm add a button that will redirect to the product list pa
 MVC2.5 Add Validation to the ProductForm for name and price to be mandatory and name between 3 and 20 characters.
 
 DB1. Save a Book entity with columns for id, version, title, price and embeddable Author (name, age) in a database.
+
+DB2. Update and findAll on the Book entity.

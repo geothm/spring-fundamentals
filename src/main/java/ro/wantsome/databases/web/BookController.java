@@ -25,7 +25,7 @@ public class BookController {
 
 		System.out.println("Saving book: " + harryPotter);
 
-		bookService.addBook(harryPotter);
+		bookService.saveBook(harryPotter);
 
 		Book foundBook = bookService.findById(harryPotter.getId());
 
@@ -38,10 +38,18 @@ public class BookController {
 
 		System.out.println("Saving book: " + hobbit);
 
-		bookService.addBook(hobbit);
+		bookService.saveBook(hobbit);
 
 		Book foundHobbit = bookService.findById(hobbit.getId());
 
 		System.out.println("Found book: " + foundHobbit);
+
+		foundHobbit.setPrice(45.0);
+
+		bookService.saveBook(foundHobbit);
+
+		for (Book b : bookService.findAll()) {
+			System.out.println("Found book by findAll(): " + b);
+		}
 	}
 }
