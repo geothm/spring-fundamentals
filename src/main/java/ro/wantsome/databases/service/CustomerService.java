@@ -19,5 +19,11 @@ public class CustomerService {
 	@Transactional
 	public void addCustomer(Customer customer) {
 		customerRepository.save(customer);
+
+		//save new Employee responsible for Customer
+	}
+
+	public Customer findById(Long id) {
+		return customerRepository.findById(id);
 	}
 }

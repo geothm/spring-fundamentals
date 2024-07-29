@@ -23,5 +23,9 @@ public class CustomerController {
 		System.out.println("Saving customer: " + customer);
 
 		customerService.addCustomer(customer);
+
+		Customer foundCustomer = customerService.findById(customer.getId());
+
+		System.out.println("Found customer: " + foundCustomer);
 	}
 }
