@@ -22,10 +22,18 @@ public class CustomerController {
 
 		System.out.println("Saving customer: " + customer);
 
-		customerService.addCustomer(customer);
+		customerService.saveCustomer(customer);
 
 		Customer foundCustomer = customerService.findById(customer.getId());
 
 		System.out.println("Found customer: " + foundCustomer);
+
+		foundCustomer.setName("Jane Doe");
+
+		customerService.saveCustomer(foundCustomer);
+
+		for (Customer c : customerService.findAll()) {
+			System.out.println("Found customer by findAll(): " + c);
+		}
 	}
 }

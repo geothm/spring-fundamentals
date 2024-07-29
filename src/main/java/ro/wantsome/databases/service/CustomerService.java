@@ -5,7 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.wantsome.databases.domain.Customer;
 import ro.wantsome.databases.domain.CustomerRepository;
 
-import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -17,7 +17,7 @@ public class CustomerService {
 	}
 
 	@Transactional
-	public void addCustomer(Customer customer) {
+	public void saveCustomer(Customer customer) {
 		customerRepository.save(customer);
 
 		//save new Employee responsible for Customer
@@ -25,5 +25,9 @@ public class CustomerService {
 
 	public Customer findById(Long id) {
 		return customerRepository.findById(id);
+	}
+
+	public List<Customer> findAll() {
+		return customerRepository.findAll();
 	}
 }
