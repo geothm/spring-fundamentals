@@ -71,3 +71,5 @@ DB1. Save a Book entity with columns for id, version, title, price and embeddabl
 DB2. Update and findAll on the Book entity.
 
 DB3. Create an entity for a BankAccount with fields for customerName, accountNo, accountCurrency, amount and a open field. Create the Repository to save and load BankAccount entities. Create the Thymeleaf templates and Controller methods to add a BankAccount and load the BankAccount table.
+
+DB5. Create a Spring Data Repository for the Book entity and replace the BookRepository in the Service object.
