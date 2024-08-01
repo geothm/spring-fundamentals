@@ -3,6 +3,7 @@ package ro.wantsome.databases.service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.wantsome.databases.domain.Customer;
+import ro.wantsome.databases.domain.CustomerJpaRepository;
 import ro.wantsome.databases.domain.CustomerRepository;
 
 import java.util.List;
@@ -12,22 +13,27 @@ public class CustomerService {
 
 	private final CustomerRepository customerRepository;
 
-	public CustomerService(CustomerRepository customerRepository) {
+	private final CustomerJpaRepository customerJpaRepository;
+
+	public CustomerService(CustomerRepository customerRepository,
+			CustomerJpaRepository customerJpaRepository) {
 		this.customerRepository = customerRepository;
+		this.customerJpaRepository = customerJpaRepository;
 	}
 
 	@Transactional
 	public void saveCustomer(Customer customer) {
-		customerRepository.save(customer);
+		customerJpaRepository.save(customer);
 
 		//save new Employee responsible for Customer
 	}
 
 	public Customer findById(Long id) {
-		return customerRepository.findById(id);
+		return customerJpaRepository.findById(id)
+				.orElse(null);
 	}
 
 	public List<Customer> findAll() {
-		return customerRepository.findAll();
+		return customerJpaRepository.findAll();
 	}
 }
