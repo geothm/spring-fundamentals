@@ -3,9 +3,11 @@ package ro.wantsome.databases.web;
 import org.springframework.stereotype.Controller;
 import ro.wantsome.databases.domain.Author;
 import ro.wantsome.databases.domain.Book;
+import ro.wantsome.databases.domain.Chapter;
 import ro.wantsome.databases.service.BookService;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Controller
 public class BookController {
@@ -24,6 +26,10 @@ public class BookController {
 		harryPotter.setAuthor(new Author("J.K. Rowling", 60.0));
 
 		System.out.println("Saving book: " + harryPotter);
+
+		harryPotter.setChapterList(List.of(
+				new Chapter("Chapter 1", harryPotter),
+				new Chapter("Chapter 2", harryPotter)));
 
 		bookService.saveBook(harryPotter);
 

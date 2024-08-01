@@ -2,6 +2,8 @@ package ro.wantsome.databases.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "book_table")
 public class Book {
@@ -21,6 +23,9 @@ public class Book {
 
 	@Embedded
 	private Author author;
+
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+	private List<Chapter> chapterList;
 
 	public Long getId() {
 		return id;
@@ -54,5 +59,14 @@ public class Book {
 	{
 		return "Book{" + "id=" + id + ", version=" + version + ", title='" + title + '\'' + ", price="
 					 + price + ", author=" + author + '}';
+	}
+
+	public List<Chapter> getChapterList()
+	{
+		return chapterList;
+	}
+	public void setChapterList(List<Chapter> chapterList)
+	{
+		this.chapterList = chapterList;
 	}
 }
