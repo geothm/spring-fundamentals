@@ -54,7 +54,7 @@ public class BookController {
 
 		bookService.saveBook(foundHobbit);
 
-		for (Book b : bookService.findAll()) {
+		for (Book b : bookService.findAllByTitle("The Hobbit")) {
 			System.out.println("Found book by findAll(): " + b);
 		}
 	}

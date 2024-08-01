@@ -32,4 +32,8 @@ public class BookService {
 	public List<Book> findAll() {
 		return bookJpaRepository.findAll();
 	}
+
+	public List<Book> findAllByTitle(String title) {
+		return bookJpaRepository.findAllByTitle(title);
+	}
 }

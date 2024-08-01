@@ -27,7 +27,10 @@ public class BankAccountRepository
 	}
 
 	public List<BankAccount> findAll() {
-		return em.createQuery("SELECT bankAccount FROM BankAccount bankAccount", BankAccount.class).getResultList();
+		return em.createQuery("SELECT bankAccount FROM BankAccount bankAccount WHERE bankAccount.customerName = :customerName"
+				, BankAccount.class)
+				.setParameter("customerName", "John Doe").
+				getResultList();
 	}
 
 	public void delete(Long id) {
