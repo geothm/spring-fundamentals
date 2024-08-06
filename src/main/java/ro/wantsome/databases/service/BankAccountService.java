@@ -1,5 +1,7 @@
 package ro.wantsome.databases.service;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.wantsome.databases.domain.BankAccount;
@@ -25,6 +27,8 @@ public class BankAccountService {
 		return bankAccountRepository.findById(id);
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
+	//@Secured("ADMIN")
 	public List<BankAccount> findAll() {
 		return bankAccountRepository.findAll();
 	}
