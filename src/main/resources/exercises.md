@@ -73,3 +73,6 @@ DB2. Update and findAll on the Book entity.
 DB3. Create an entity for a BankAccount with fields for customerName, accountNo, accountCurrency, amount and a open field. Create the Repository to save and load BankAccount entities. Create the Thymeleaf templates and Controller methods to add a BankAccount and load the BankAccount table.
 
 DB5. Create a Spring Data Repository for the Book entity and replace the BookRepository in the Service object.
+
+SS1. Create a Spring Security configuration with in-memory authentication for three users: user1/password1 with role PRODUCTS 
+, user2/password2 with role FINANCIAL and user3/password3 with role PRODUCTS, FINANCIAL.

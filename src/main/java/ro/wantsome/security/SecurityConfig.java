@@ -20,6 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/", "/error/**", "/login", "/login/**").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/accounts")).hasRole("FINANCIAL")
+                        .requestMatchers(new AntPathRequestMatcher("/products")).hasRole("PRODUCTS")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
@@ -37,9 +38,21 @@ public class SecurityConfig {
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withDefaultPasswordEncoder()
-                .username("user")
+                .username("user1")
                 .password("password")
-                .roles("USER")
+                .roles("PRODUCTS")
+                .build());
+
+        manager.createUser(User.withDefaultPasswordEncoder()
+                .username("user2")
+                .password("password")
+                .roles("FINANCIAL")
+                .build());
+
+        manager.createUser(User.withDefaultPasswordEncoder()
+                .username("user3")
+                .password("password")
+                .roles("FINANCIAL", "PRODUCTS")
                 .build());
 
         return manager;
