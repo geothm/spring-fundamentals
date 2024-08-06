@@ -76,3 +76,6 @@ DB5. Create a Spring Data Repository for the Book entity and replace the BookRep
 
 SS1. Create a Spring Security configuration with in-memory authentication for three users: user1/password1 with role PRODUCTS 
 , user2/password2 with role FINANCIAL and user3/password3 with role PRODUCTS, FINANCIAL.
+
+SS2. Implement a CustomUserDetailsService that loads the userValidation from the database and a register controller 
+that saves a userValidation in the database.

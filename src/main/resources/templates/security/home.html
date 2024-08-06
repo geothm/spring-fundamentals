@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Welcome</h1>
+<p th:text="'Hello, ' + ${#authentication.name} + '!'"></p>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

@@ -7,7 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ro.wantsome.layered.domain.User;
+import ro.wantsome.layered.domain.UserValidation;
 import ro.wantsome.layered.domain.UsersRepository;
 import ro.wantsome.layered.service.UsersService;
 
@@ -30,13 +30,13 @@ public class UsersController {
 
 	@GetMapping("/userForm")
 	public String userForm(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new UserValidation());
 		return "userForm";
 	}
 
 
 	@PostMapping("/submitUser")
-	public String submitUser(@Valid @ModelAttribute User user,
+	public String submitUser(@Valid @ModelAttribute UserValidation userValidation,
 			BindingResult bindingResult,
 			Model model) {
 
@@ -45,9 +45,9 @@ public class UsersController {
 		}
 
 		//save user
-		usersRepository.save(user);
+		usersRepository.save(userValidation);
 
-		model.addAttribute("user", user);
+		model.addAttribute("user", userValidation);
 		return "result";
 	}
 

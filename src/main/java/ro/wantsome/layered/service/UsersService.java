@@ -1,7 +1,7 @@
 package ro.wantsome.layered.service;
 
 import org.springframework.stereotype.Service;
-import ro.wantsome.layered.domain.User;
+import ro.wantsome.layered.domain.UserValidation;
 import ro.wantsome.layered.domain.UsersRepository;
 
 import java.util.List;
@@ -15,11 +15,11 @@ public class UsersService {
 		this.usersRepository = usersRepository;
 	}
 
-	public List<User> listUsers() {
+	public List<UserValidation> listUsers() {
 		return usersRepository.findAll();
 	}
 
-	public Long saveUser(User user) {
-		return usersRepository.save(user);
+	public Long saveUser(UserValidation userValidation) {
+		return usersRepository.save(userValidation);
 	}
 }

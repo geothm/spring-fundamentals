@@ -10,18 +10,18 @@ public class UsersRepository {
 
 	static long idCount = 1L;
 
-	public List<User> findAll() {
+	public List<UserValidation> findAll() {
 		return List.of(
-			new User(1L, "John Doe", "johndoes@gmail.com"),
-			new User(2L, "Jane Doe", "janedoe@gmail.com"),
-			new User(3L, "Alice", "alice@gmail.com"));
+			new UserValidation(1L, "John Doe", "johndoes@gmail.com"),
+			new UserValidation(2L, "Jane Doe", "janedoe@gmail.com"),
+			new UserValidation(3L, "Alice", "alice@gmail.com"));
 	}
 
-	public Long save(User user) {
-		user.setId(idCount++);
+	public Long save(UserValidation userValidation) {
+		userValidation.setId(idCount++);
 
-		System.out.println("User saved: " + user);
+		System.out.println("User saved: " + userValidation);
 
-		return user.getId();
+		return userValidation.getId();
 	}
 }

@@ -2,7 +2,7 @@ package ro.wantsome.layered.domain;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-public class User {
+public class UserValidation {
 
 	private Long id;
 
@@ -11,10 +11,10 @@ public class User {
 	private String name;
 	private String email;
 
-	public User() {
+	public UserValidation() {
 	}
 
-	public User(Long id, String name, String email) {
+	public UserValidation(Long id, String name, String email) {
 		this.id = id;
 		this.name = name;
 		this.email = email;

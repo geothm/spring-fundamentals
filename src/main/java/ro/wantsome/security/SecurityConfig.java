@@ -7,9 +7,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import ro.wantsome.security.domain.UserJpaRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -20,13 +23,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/error/**", "/login", "/login/**").permitAll()
+                        .requestMatchers("/", "/error/**", "/login", "/login/**", "/register").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/accounts")).hasRole("FINANCIAL")
                         .requestMatchers(new AntPathRequestMatcher("/products")).hasRole("PRODUCTS")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .permitAll() // Use the default login page provided by Spring Security
+                        .permitAll()
+                        .defaultSuccessUrl("/home")// Use the default login page provided by Spring Security
                 )
                 .logout(logout -> logout
                         .permitAll() // Allow anyone to log out
@@ -37,6 +41,17 @@ public class SecurityConfig {
     }
 
     @Bean
+    public CustomUserDetailsService customUserDetailsService(UserJpaRepository userJpaRepository) {
+        return new CustomUserDetailsService(userJpaRepository);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+
+    /*@Bean
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withDefaultPasswordEncoder()
@@ -58,5 +73,5 @@ public class SecurityConfig {
                 .build());
 
         return manager;
-    }
+    }*/
 }

@@ -27,7 +27,7 @@ public class BankAccountService {
 		return bankAccountRepository.findById(id);
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	//@Secured("ADMIN")
 	public List<BankAccount> findAll() {
 		return bankAccountRepository.findAll();
