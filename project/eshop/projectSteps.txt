@@ -1,0 +1,24 @@
+Project setup
+
+Step 1. Go to https://start.spring.io/ and create a new project with
+relevant dependencies (web, security, h2, data-jpa, thymeleaf, thymeleaf-extras)
+
+Step 2. In application.properties configure the port for the web application and the database credentials (connection parameters)
+
+Step 3. Create a Thymeleaf home page with a welcome message and the coresponding Controller
+
+Step 4: Add a navigation component with Thymeleaf fragments that will be included in all pages with links to: login, orders, products, logout. Add it to the home page.
+
+Step 5: Add a Thymeleaf template for Orders (columns for orderId, orderDate, value, customerName, isConfirmed) and the coresponding Controller
+
+Step 6: Add a Order Class and create a List with 3 Orders to send to the order list page
+
+Step 7: Create a form and a Controller method to save new Orders. Add a navigation from the list page to the form. Customer name and value should be required.
+
+Step 8: Create a Service and a Repository for Orders and save/get them from the database. Don't forget the ddl update flag in application.properties
+
+Step 9: Implement update for an existing Order
+
+Step 10: Implement Delete for an existing Order
+
+Step 11: Add SecurityConfig with 3 InMemory Users
