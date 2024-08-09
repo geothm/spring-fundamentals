@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff0000; /* Red */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .welcome-message {
+            background-color: #ccc; /* Gray */
+            color: #333; /* Dark Gray */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .welcome-message h1 {
+            color: #ff0000; /* Red */
+        }
+
+        .footer {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Online Shop</h1>
+</header>
+<div th:insert="~{fragments :: nav}"></div>
+<div class="container">
+    <div class="welcome-message">
+        <h1>Welcome to Our Online Shop</h1>
+        <p>We are delighted to have you here. Enjoy your shopping experience!</p>
+    </div>
+</div>
+<div class="footer">
+    <p>&copy; 2024 Online Shop. All rights reserved.</p>
+</div>
+</body>
+</html>

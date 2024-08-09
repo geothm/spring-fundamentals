@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff0000; /* Red */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #ccc; /* Gray */
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333; /* Dark Gray */
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background-color: #ff0000; /* Red */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #e60000;
+        }
+
+        .footer {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Add Order</h1>
+</header>
+<!-- Insert the navigation fragment using the shorthand syntax -->
+<div th:insert="~{fragments :: nav}"></div>
+<div class="container">
+    <div class="form-container">
+        <form th:action="@{/addOrder}" th:object="${order}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:field="*{version}">
+
+            <label for="orderDate">Order Date:</label>
+            <input type="date" id="orderDate" th:field="*{orderDate}" name="orderDate">
+
+            <label for="value">Value:</label>
+            <input type="number" id="value" th:field="*{value}" name="value" step="0.01" required>
+
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" th:field="*{customerName}" name="customerName" required>
+
+            <label for="isConfirmed">Confirmed:</label>
+            <select id="isConfirmed" th:field="*{isConfirmed}" name="isConfirmed">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+
+            <button type="submit">Add Order</button>
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <p>&copy; 2024 Online Shop. All rights reserved.</p>
+</div>
+</body>
+</html>

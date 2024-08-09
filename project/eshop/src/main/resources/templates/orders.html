@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff0000; /* Red */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            min-width: 400px;
+            border: 1px solid #ddd;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #ff0000; /* Red */
+            color: white;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .add-order-link {
+            display: block;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .add-order-link a {
+            background-color: #ff0000; /* Red */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .add-order-link a:hover {
+            background-color: #e60000;
+        }
+
+        .footer {
+            background-color: #333; /* Dark Gray */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .action-links form {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .action-links a, .action-links button {
+            margin-right: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff; /* Blue */
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .action-links button.delete {
+            background-color: #dc3545; /* Red */
+        }
+
+        .action-links a:hover, .action-links button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Orders</h1>
+</header>
+<!-- Insert the navigation fragment using the shorthand syntax -->
+<div th:insert="~{fragments :: nav}"></div>
+<div class="container">
+    <h2>Order List</h2>
+    <div class="add-order-link">
+        <a th:href="@{/orderForm}">Add New Order</a>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Value</th>
+            <th>Customer Name</th>
+            <th>Confirmed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.id}">1</td>
+            <td th:text="${order.orderDate}">2023-01-01</td>
+            <td th:text="${order.value}">$100.00</td>
+            <td th:text="${order.customerName}">John Doe</td>
+            <td th:text="${order.isConfirmed ? 'Yes' : 'No'}">Yes</td>
+            <td class="action-links">
+                <a th:href="@{/updateOrder/{id}(id=${order.id})}">Update</a>
+                <a th:href="@{/deleteOrder/{id}(id=${order.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="footer">
+    <p>&copy; 2024 Online Shop. All rights reserved.</p>
+</div>
+</body>
+</html>
