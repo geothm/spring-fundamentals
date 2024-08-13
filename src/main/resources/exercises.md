@@ -79,3 +79,16 @@ SS1. Create a Spring Security configuration with in-memory authentication for th
 
 SS2. Implement a CustomUserDetailsService that loads the userValidation from the database and a register controller 
 that saves a userValidation in the database.
+
+SR1. Consider a simple example of a RESTful API for managing a collection of books.
+• Retrieve all books: GET /books
+• Retrieve a single book by ID: GET /books/{id}
+• Create a new book: POST /books
+• Update a book by ID: PUT /books/{id}
+• Delete a book by ID: DELETE /books/{id}
+
+SS1. Create a Spring Security configuration with in-memory authentication for three users: user1/password1 with role PRODUCTS 
+, user2/password2 with role FINANCIAL and user3/password3 with role PRODUCTS, FINANCIAL.
+
+SS2. Implement a CustomUserDetailsService that loads the userValidation from the database and a register controller 
+that saves a userValidation in the database.

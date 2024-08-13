@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,11 +20,13 @@ import ro.wantsome.security.domain.UserJpaRepository;
 @EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
 
+    private static final String H2_CONSOLE_PATH = "/h2-console/**";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/error/**", "/login", "/login/**", "/register").permitAll()
+                        .requestMatchers("/", "/error/**", "/login", "/login/**", "/register", "/books", "/books/**").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/accounts")).hasRole("FINANCIAL")
                         .requestMatchers(new AntPathRequestMatcher("/products")).hasRole("PRODUCTS")
                         .anyRequest().authenticated()
@@ -50,6 +53,10 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher(H2_CONSOLE_PATH));
+    }
 
     /*@Bean
     public UserDetailsService userDetailsService() {

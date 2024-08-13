@@ -36,4 +36,18 @@ public class BookService {
 	public List<Book> findAllByTitle(String title) {
 		return bookJpaRepository.findAllByTitle(title);
 	}
+
+	public void deleteById(Long id) {
+		bookJpaRepository.deleteById(id);
+	}
+
+	@Transactional
+	public void updateBookById(Long id, Book book) {
+		bookJpaRepository.updateBookById(
+				book.getAuthor().getName(),
+				book.getAuthor().getAge(),
+				book.getPrice(),
+				book.getTitle(),
+				id);
+	}
 }

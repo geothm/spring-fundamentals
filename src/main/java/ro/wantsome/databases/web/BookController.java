@@ -27,9 +27,9 @@ public class BookController {
 
 		System.out.println("Saving book: " + harryPotter);
 
-		harryPotter.setChapterList(List.of(
+		/*harryPotter.setChapterList(List.of(
 				new Chapter("Chapter 1", harryPotter),
-				new Chapter("Chapter 2", harryPotter)));
+				new Chapter("Chapter 2", harryPotter)));*/
 
 		bookService.saveBook(harryPotter);
 
