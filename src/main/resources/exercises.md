@@ -87,8 +87,9 @@ SR1. Consider a simple example of a RESTful API for managing a collection of boo
 • Update a book by ID: PUT /books/{id}
 • Delete a book by ID: DELETE /books/{id}
 
-SS1. Create a Spring Security configuration with in-memory authentication for three users: user1/password1 with role PRODUCTS 
-, user2/password2 with role FINANCIAL and user3/password3 with role PRODUCTS, FINANCIAL.
+SR2. Add error handling with Spring REST mechanism of @ControllerAdvice & @ExceptionHandling to return a customized
+exception -"NoBookException" and to manage also global exceptions through Exception class.
 
-SS2. Implement a CustomUserDetailsService that loads the userValidation from the database and a register controller 
-that saves a userValidation in the database.
+SR3. Use ResponseEntity to provide status codes and to customize the messages
+
+SR4. Use HATEOAS library to add -link section to the response on the /books/{id} GET method which retrieve a book by its id

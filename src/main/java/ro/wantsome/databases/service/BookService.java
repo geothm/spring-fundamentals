@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.wantsome.databases.domain.Book;
 import ro.wantsome.databases.domain.BookJpaRepository;
 import ro.wantsome.databases.domain.BookRepository;
+import ro.wantsome.exceptions.NoBookFoundException;
 
 import java.util.List;
 
@@ -26,7 +27,8 @@ public class BookService {
 	}
 
 	public Book findById(Long id) {
-		return bookJpaRepository.findById(id).orElse(null);
+		return bookJpaRepository.findById(id)
+				.orElseThrow(() -> new NoBookFoundException("No book found with id: " + id));
 	}
 
 	public List<Book> findAll() {
@@ -43,6 +45,9 @@ public class BookService {
 
 	@Transactional
 	public void updateBookById(Long id, Book book) {
+		bookJpaRepository.findById(id)
+				.orElseThrow(() -> new NoBookFoundException("No book found with id: " + id));
+
 		bookJpaRepository.updateBookById(
 				book.getAuthor().getName(),
 				book.getAuthor().getAge(),
