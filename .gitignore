@@ -11,6 +11,7 @@ target/
 .idea/vcs.xml
 .idea/misc.xml
 .idea/libraries/
+.idea/**/*.xml
 *.iws
 *.iml
 *.ipr
