@@ -26,7 +26,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/error/**", "/login", "/login/**", "/register", "/books", "/books/**", "/students/**").permitAll()
+                        .requestMatchers("/", "/error/**", "/login", "/login/**", "/register", "/books", "/books/**",
+                                "/students/**", "/batch/launch-job", "/visitors/**").permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/accounts")).hasRole("FINANCIAL")
                         .requestMatchers(new AntPathRequestMatcher("/products")).hasRole("PRODUCTS")
                         .anyRequest().authenticated()
